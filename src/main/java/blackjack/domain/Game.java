@@ -13,16 +13,16 @@ import blackjack.domain.participant.Player;
 
 public class Game {
 
-    private final CardDeck cardDeck;
-    private final Dealer dealer;
     private final List<Player> players;
+    private final Dealer dealer;
+    private final CardDeck cardDeck;
 
     public Game(CardDeck cardDeck, List<Name> playerNames) {
-        this.cardDeck = cardDeck;
-        this.dealer = new Dealer();
         this.players = List.copyOf(playerNames).stream()
             .map(Player::new)
             .collect(Collectors.toUnmodifiableList());
+        this.dealer = new Dealer();
+        this.cardDeck = cardDeck;
         init();
     }
 
