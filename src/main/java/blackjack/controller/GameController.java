@@ -11,7 +11,6 @@ import blackjack.domain.Betting;
 import blackjack.domain.BettingTable;
 import blackjack.domain.Game;
 import blackjack.domain.PlayRecord;
-import blackjack.domain.PlayStatus;
 import blackjack.domain.RecordFactory;
 import blackjack.domain.card.CardDeck;
 import blackjack.domain.card.deckstrategy.RandomDeck;
@@ -69,9 +68,7 @@ public class GameController {
 
         while (game.findHitPlayer().isPresent()) {
             Player player = game.findHitPlayer().get();
-            PlayStatus hitOrStay = requestHitOrStay(player.getName());
-
-            game.drawPlayerCard(player, hitOrStay);
+            game.drawPlayerCard(player, requestHitOrStay(player.getName()));
 
             printPlayerCards(convertToDto(player));
         }
