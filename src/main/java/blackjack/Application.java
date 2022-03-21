@@ -1,5 +1,7 @@
 package blackjack;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import blackjack.controller.GameController;
 
 public class Application {
